@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="SuiteTest">
 	<listeners>
-		<listener class-name="com.saucedemo.utils.AllureListener" />
+		<listener class-name="com.shared.utils.AllureListener" />
 	</listeners>
-	<test thread-count="5" name="Test">
+	<test thread-count="5" name="Test: saucedemo">
 		<classes>
 			<class name="com.saucedemo.testcases.LoginTest" />
+			<class name="com.saucedemo.testcases.ProductsTest" />
 		</classes>
 	</test> <!-- Test -->
-</suite> <!-- Suite -->
+</suite> <!-- SuiteTest -->

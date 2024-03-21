@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.apache.poi.ss.usermodel.Sheet;
-import com.saucedemo.commonbase.CommonBase;
 import com.saucedemo.pages.CartPage;
 import com.saucedemo.pages.CheckoutPage;
 import com.saucedemo.pages.LoginPage;
@@ -14,8 +13,9 @@ import com.saucedemo.pages.LogoutPage;
 import com.saucedemo.pages.NavbarPage;
 import com.saucedemo.pages.ProductDetailsPage;
 import com.saucedemo.pages.ProductsPage;
-import com.saucedemo.utils.Product;
-import com.saucedemo.utils.Utils;
+import com.shared.utils.Product;
+import com.shared.utils.Utils;
+import com.shared.commonbase.CommonBase;
 
 public class ProductsTest extends CommonBase {
 	private LoginPage loginPage;
@@ -29,13 +29,12 @@ public class ProductsTest extends CommonBase {
 //	Sheets
 	private Sheet productsDetailsSheet;
 	private Sheet checkoutDetailsSheet;
-
 	private Product[] productsToAdd;
 
 	@BeforeSuite
 	public void setUp() {
 		initialize();
-		launchBrowser();
+		launchBrowser(null);
 	}
 
 	@BeforeTest
@@ -58,7 +57,7 @@ public class ProductsTest extends CommonBase {
 		}
 	}
 
-	@Test(priority = 1, enabled = true)
+	@Test(priority = 1)
 	public void testProductListingPageUrl() {
 		String username = "standard_user";
 		String password = "secret_sauce";

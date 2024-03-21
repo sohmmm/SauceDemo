@@ -1,4 +1,4 @@
-package com.saucedemo.utils;
+package com.shared.utils;
 
 public class Product {
 	private String name;

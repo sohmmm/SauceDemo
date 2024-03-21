@@ -1,9 +1,8 @@
-package com.saucedemo.commonbase;
+package com.shared.commonbase;
 
 import java.io.FileInputStream;
 import java.time.Duration;
 import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -12,16 +11,13 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class CommonBase {
 	private static WebDriver driver;
-	
 	private static Properties config;
 	
 	public CommonBase() {
 		config = new Properties();
 		
-//		initialize allure properties
 		System.setProperty("allure.results.directory", "/reports");
-		
-		String configFilePath = System.getProperty("user.dir") + "/src/main/java/com/saucedemo/config/config.properties";
+		String configFilePath = System.getProperty("user.dir") + "/src/main/java/com/shared/config/config.properties";
 		
 		try {
 			config.load(new FileInputStream(configFilePath));
@@ -51,11 +47,19 @@ public class CommonBase {
 		CommonBase.driver = driver;
 	}
 	
-	public void launchBrowser() {
-		String baseUrl = config.getProperty("baseUrl");
+	public void launchBrowser(String url) {
+		String baseUrl;
+		
+		if (url == null || url.equals("")) {
+			baseUrl = config.getProperty("baseUrl");
+		} else {
+			baseUrl = url;
+		}
+		
+//		baseUrl = config.getProperty("baseUrl");
 		
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.get(baseUrl);
 	}
 

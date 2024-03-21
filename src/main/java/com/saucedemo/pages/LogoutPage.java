@@ -3,8 +3,7 @@ package com.saucedemo.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import com.saucedemo.commonbase.CommonBase;
+import com.shared.commonbase.CommonBase;
 
 public class LogoutPage extends CommonBase {
 	@FindBy (id = "logout_sidebar_link")

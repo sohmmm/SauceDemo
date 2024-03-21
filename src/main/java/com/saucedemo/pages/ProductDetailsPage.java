@@ -3,7 +3,7 @@ package com.saucedemo.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.saucedemo.commonbase.CommonBase;
+import com.shared.commonbase.CommonBase;
 
 public class ProductDetailsPage extends CommonBase {
 	@FindBy(className = "inventory_details_name")

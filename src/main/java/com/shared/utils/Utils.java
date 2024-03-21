@@ -1,4 +1,4 @@
-package com.saucedemo.utils;
+package com.shared.utils;
 
 import java.io.FileInputStream;
 import java.math.BigDecimal;

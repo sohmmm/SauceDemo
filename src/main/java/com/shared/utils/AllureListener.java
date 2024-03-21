@@ -1,4 +1,4 @@
-package com.saucedemo.utils;
+package com.shared.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,13 +22,10 @@ public class AllureListener implements IExecutionListener {
 			String currentDate = new SimpleDateFormat("dd.MM.yyyy").format(date);
 
 			String generateReportCmd = String
-				.format("allure generate allure-results -o allure-reports/%s/temp --single-file", currentDate);
+					.format("allure generate allure-results -o allure-reports/%s/temp --single-file", currentDate);
 			String renameReport = String.format(
-				"move allure-reports\\%s\\temp\\index.html allure-reports\\%s\\report_%s.html",
-				currentDate,
-				currentDate,
-				timeStamp
-			);
+					"move allure-reports\\%s\\temp\\index.html allure-reports\\%s\\report_%s.html", currentDate,
+					currentDate, timeStamp);
 
 			runCommand(generateReportCmd);
 			runCommand(renameReport);
